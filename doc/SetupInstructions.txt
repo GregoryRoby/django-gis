@@ -1,0 +1,17 @@
+Create a PostgreSQL Database
+  sudo su postgres
+  createdb django_gis
+  createuser django_gis_dev_dbuser
+  psql django_gis
+    alter user django_gis_dev_dbuser with password 'dev_password1234';
+    alter user django_gis_dev_dbuser with superuser;
+    alter database django_gis OWNER TO django_gis_dev_dbuser;
+    CREATE EXTENSION postgis;
+    \q
+  python3 manage.py migrate
+  psql django_gis
+    alter user django_gis_dev_dbuser with nosuperuser;
+
+
+
+ 
